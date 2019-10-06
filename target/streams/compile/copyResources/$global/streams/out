@@ -1,0 +1,8 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/application.conf,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/evolutions,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/logback.xml,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/routes,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/evolutions/default,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/evolutions/default/1.sql,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0mdebug[0m] [0m	(/Users/ldipotet/envio/borrar/server-side-test-master/conf/evolutions/default/2.sql,/Users/ldipotet/envio/borrar/server-side-test-master/target/scala-2.12/classes/evolutions/default/2.sql)[0m

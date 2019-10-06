@@ -1,0 +1,18 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#==================== Purposefully commented out to prevent compiler throwing errors ====================
+#==================== Uncomment the endpoints when implementation is ready           ====================
+
+# Tracking Impression
+POST     /impression                        track.api.ImpressionApi.save
+
+# Impression Query
+GET      /impression/:impressionId          track.api.ImpressionApi.get(impressionId:Int)
+GET      /count/bidder/:bidder/date/:date   track.api.ImpressionApi.count(bidder:String, date:String)
+
+#Charges Query
+GET     /charges                            track.api.ImpressionApi.getCharges
+
