@@ -23,8 +23,8 @@ class ImpressionApi @Inject()(cc: ControllerComponents, daorepository:Impression
 
   def save = Action.async { implicit request =>
     val newImpression: ImpressionIn = request.body.asJson.get.as[ImpressionIn]
-    val impressionToInsert:Impression = Impression(None,newImpression.`placement-id`,newImpression.bidder,None)
-    daorepository.save(impressionToInsert).map(id => Ok(Json.obj( "impression-id" -> (s"$id"))))
+   // val impressionToInsert:Impression = Impression(None,newImpression.`placement-id`,newImpression.bidder,None)
+    daorepository.save(newImpression).map(id => Ok(Json.obj( "impression-id" -> (s"$id"))))
  }
 
   def get(impressionId:Int) = Action.async { implicit request =>

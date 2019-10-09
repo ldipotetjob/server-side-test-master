@@ -1,7 +1,7 @@
 package track
 import java.time.LocalDateTime
 
-import track.domain.Impression
+import track.domain.{Impression, ImpressionIn}
 
 import scala.concurrent.Future
 
@@ -22,6 +22,6 @@ def countByBidderAndDate(bidderIn: String, date: String): Future[Int] = Future.s
 
 def all() : Future[Seq[Impression]] = Future.successful(Seq(impression,impression1,impression2))
 
-def save(impression: Impression) : Future[Int] = Future.successful(3)
+def save(impression: ImpressionIn) : Future[Int] = Future.successful(3)
 
 }

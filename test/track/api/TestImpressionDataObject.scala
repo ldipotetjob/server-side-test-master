@@ -20,5 +20,4 @@ object TestImpressionDataObject {
   val impression1 = Impression(Option(2),"ABC123","Appnexus",Option(dateTimeEveningWeekday))
   val impression2 = Impression(Option(3),"ABC123","Appnexus",Option(dateTimeDefaultWeekday))
   val impressionIn = ImpressionIn("ABC123","Appnexus")
-  val impressionIn1 = Impression(None,"ABC123","Appnexus",None)
 }

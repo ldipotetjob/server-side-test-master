@@ -7,7 +7,7 @@ import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 import java.time.{LocalDate, LocalDateTime, ZoneId}
 
-import track.domain.Impression
+import track.domain.{Impression, ImpressionIn}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -22,10 +22,9 @@ class Impressions(tag: Tag) extends Table[Impression](tag, "IMPRESSION") {
   def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
   def bidder = column[String]("BIDDER")
   def `placement-id` = column[String]("PLACEMENT")
-  def timestamp = column[LocalDateTime]("TIMEVAL")
+  def timestamp = column[LocalDateTime]("TIMEVAL", O.Default(LocalDateTime.now()))
   def * = (id.?, `placement-id`,bidder,timestamp.?) <> (Impression.tupled, Impression.unapply _)
 }
-
   private val impressions = TableQuery[Impressions]
 
   def findById(id: Int): Future[Option[Impression]] =
@@ -36,8 +35,9 @@ class Impressions(tag: Tag) extends Table[Impression](tag, "IMPRESSION") {
 
   def all(): Future[Seq[Impression]] = db.run(impressions.result)
 
-  def save(impression: Impression): Future[Int] = {
-    db.run(impressions returning impressions.map(_.id) += impression)
+  def save(impression: ImpressionIn): Future[Int] = {
+    val impressionToInsert:Impression = Impression(None,impression.`placement-id`,impression.bidder,Option(LocalDateTime.now()))
+    db.run(impressions returning impressions.map(_.id) += impressionToInsert)
   }
 
 }

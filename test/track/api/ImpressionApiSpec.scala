@@ -41,7 +41,7 @@ class ImpressionApiSpec extends FlatSpec with Matchers with MockitoSugar {
   ) thenReturn Future.successful(seqImpression)
 
   when(
-    mockImpressionRepository.save(impressionIn1)
+    mockImpressionRepository.save(impressionIn)
   ) thenReturn Future.successful(1)
 
 
