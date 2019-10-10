@@ -5,7 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.Logging
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
-import java.time.{LocalDate, LocalDateTime, ZoneId}
+import java.sql._
+
+import java.time.LocalDateTime
+
+
 
 import track.domain.{Impression, ImpressionIn}
 
@@ -30,8 +34,13 @@ class Impressions(tag: Tag) extends Table[Impression](tag, "IMPRESSION") {
   def findById(id: Int): Future[Option[Impression]] =
     db.run(impressions.filter(_.id === id).result.headOption)
 
-  def countByBidderAndDate(bidderIn: String, date:String): Future[Int] =
-    db.run(impressions.filter(_.bidder===bidderIn ).size.result)
+  def countByBidderAndDate(bidderIn: String, date:String): Future[Int] ={
+
+    implicit val localDateTimeColumnType: BaseColumnType[LocalDateTime] = MappedColumnType.base[LocalDateTime, Timestamp](Timestamp.valueOf, _.toLocalDateTime)
+
+    db.run(impressions.filter(_.bidder === bidderIn).
+      map(_.timestamp).filter(d => d === LocalDateTime.parse(date)).size.result)
+  }
 
   def all(): Future[Seq[Impression]] = db.run(impressions.result)
 

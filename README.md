@@ -122,7 +122,7 @@ Http 4xx with  Json of the form
 **To get the count**
 
 ```
-curl -X GET http://localhost:9000/count/bidder/appnexus/date/2019-09-13
+curl -X GET http://localhost:9000/count/bidder/appnexus/date/2019-09-12T07:30:01
 ```
 
 should return
